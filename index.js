@@ -24,13 +24,8 @@ const questions = [
     type: 'input'
 },
 {
-    name: 'contribution-guidelines',
-    message: 'Enter the contribution guidelines: ',
-    type: 'input'
-},
-{
-    name: 'test',
-    message: 'Enter the test instructions: ',
+    name: 'Contributors',
+    message: 'Name of the persons to contribute to this project',
     type: 'input'
 },
 {
@@ -52,8 +47,14 @@ const questions = [
   
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+
+  fs.writeFile(fileName + '.md', generateMarkdown(data), function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+});
+
+}
 
 
 function init() {}
